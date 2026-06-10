@@ -27,4 +27,5 @@ export interface SupportTier {
   price: number;
   interval: 'monthly' | 'one-time';
   benefits: string[];
+  donationUrl: string;
 }

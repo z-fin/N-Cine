@@ -1,5 +1,6 @@
+import { MovieStillsCarousel } from '../components/common/MovieStillsCarousel';
 import { AboutFeatureGrid } from '../components/features/about/AboutFeatureGrid';
-import './pages.css';
+import '../styles/pages.css';
 
 const timeline = [
   {
@@ -37,15 +38,17 @@ const pastEvents = [
 export default function AboutPage() {
   return (
     <>
-      <section className="page-section page-section--ink">
+      <section className="page-section page-section--ink about-page">
         <div className="container page-hero">
-          <span className="section-kicker">Sobre Nosotros</span>
+          {/* <span className="section-kicker about">Sobre Nosotros</span> */}
           <h1 className="section-heading">Una sala para encontrarnos en la imagen.</h1>
           <p className="section-copy">
             Nuestro Cine es un espacio de cine queer hecho por y para la comunidad. Agregar mas texto.
           </p>
         </div>
       </section>
+
+      <MovieStillsCarousel />
 
       <section className="page-section">
         <div className="container">

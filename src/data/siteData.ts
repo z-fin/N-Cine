@@ -11,6 +11,7 @@ export const screenings: Screening[] = [
       'Una noche de deseo, clase y disrupcion familiar con debate abierto despues de la funcion.',
     tags: ['Clasico', 'Cine debate', 'Disidencias'],
     accent: 'red',
+    posterUrl: '/mock/posters/teorema.jpg',
   },
   {
     id: 'lingua-franca',
@@ -22,6 +23,7 @@ export const screenings: Screening[] = [
       'Drama intimo sobre migracion, cuidado y vida trans contemporanea.',
     tags: ['Trans Cinema', 'Drama', 'Contemporaneo'],
     accent: 'orange',
+    posterUrl: '/mock/posters/lingua-franca.jpg',
   },
   {
     id: 'cortos-rio',
@@ -33,6 +35,7 @@ export const screenings: Screening[] = [
       'Bloque de cortometrajes locales con directoras invitadas y brindis comunitario.',
     tags: ['Local Short', 'Estrenos', 'Argentina'],
     accent: 'green',
+    posterUrl: '/mock/posters/cortos-del-rio.jpg',
   },
   {
     id: 'born-in-flames',
@@ -44,6 +47,7 @@ export const screenings: Screening[] = [
       'Ciencia ficcion punk feminista para pensar imagenes, archivo y organizacion politica.',
     tags: ['Culto', 'Feminismos', 'Archivo'],
     accent: 'violet',
+    posterUrl: '/mock/posters/born-in-flames.jpg',
   },
 ];
 
@@ -53,6 +57,7 @@ export const newsArticles: NewsArticle[] = [
     title: 'Como armamos la comunidad',
     excerpt:
       'Notas de programacion, hallazgos y preguntas para que cada funcion deje materiales disponibles para la comunidad.',
+    imageUrl: '/mock/news/archivo-vivo.jpg',
     category: 'Archivo',
     date: '12 Jun 2026',
     readTime: '5 min',
@@ -63,6 +68,7 @@ export const newsArticles: NewsArticle[] = [
     title: 'Moonlight y la delicadeza como forma de resistencia',
     excerpt:
       'Una lectura colectiva sobre silencios, tacto y deseo despues de nuestra ultima funcion aniversario.',
+    imageUrl: '/mock/news/moonlight.jpg',
     category: 'Critica',
     date: '21 May 2026',
     readTime: '7 min',
@@ -78,6 +84,7 @@ export const supportTiers: SupportTier[] = [
     description: 'Ayuda a cubrir subtitulado, traslados y materiales de sala.',
     perks: ['Agradecimiento mensual', 'Voto en encuestas de programacion'],
     accent: 'red',
+    donationUrl: 'https://cafecito.app/nuestrociclo?tier=entrada&amount=2000',
   },
   {
     id: 'butaca',
@@ -86,6 +93,7 @@ export const supportTiers: SupportTier[] = [
     description: 'Hace posible cupos gratuitos para personas de la comunidad.',
     perks: ['Reserva prioritaria', 'Encuentro trimestral de programacion'],
     accent: 'orange',
+    donationUrl: 'https://cafecito.app/nuestrociclo?tier=butaca&amount=10000',
   },
   {
     id: 'proyector',
@@ -94,5 +102,6 @@ export const supportTiers: SupportTier[] = [
     description: 'Financia derechos(?), invitades y registro audiovisual.',
     perks: ['Mencion en sala', 'Invitacion doble a funciones especiales'],
     accent: 'violet',
+    donationUrl: 'https://cafecito.app/nuestrociclo?tier=proyector&amount=15000',
   },
 ];

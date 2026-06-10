@@ -11,10 +11,11 @@ interface TicketCardProps {
 }
 
 function splitDateTime(dateTime: string) {
-  const [date, time] = dateTime.split(',').map((part) => part.trim());
+  const [day, date, time] = dateTime.split(',').map((part) => part.trim());
 
   return {
-    date,
+    day: day,
+    date: date,
     time: time ?? 'Horario a confirmar',
   };
 }
@@ -33,30 +34,38 @@ export function TicketCard({ screening, frameLabel }: TicketCardProps) {
           <strong>{date}</strong>
           <span>Hora</span>
           <strong>{time}</strong>
-          <span>Sala</span>
+          <span>Lugar</span>
           <strong>{screening.venue}</strong>
         </aside>
 
         <div className="ticket-card__body">
-          <div className="ticket-card__still" role="img" aria-label={frameLabel ?? screening.title}>
-            <span>{screening.title}</span>
+          <div className="ticket-card__still">
+            <img
+              src={screening.posterUrl}
+              alt={frameLabel ?? `Poster de ${screening.title}`}
+            />
           </div>
-          <div>
-            <p>{screening.director}</p>
-            <h3>{screening.title}</h3>
+
+          <div className="ticket-card__details">
+            <p className="ticket-card__director" title={screening.director}>
+              {screening.director}
+            </p>
+            <h3 title={screening.title}>{screening.title}</h3>
+            <p className="ticket-card__availability">{screening.description}</p>
+
+            <div className="ticket-card__genres" aria-label="Generos">
+              {screening.tags.slice(0, 3).map((tag) => (
+                <Badge key={tag} accent={screening.accent}>
+                  {tag}
+                </Badge>
+              ))}
+            </div>
           </div>
-          <Button href="/funciones" variant="primary" accent={screening.accent}>
+
+          <Button href={screening.ticketUrl ?? '/funciones'} variant="primary" accent={screening.accent}>
             Reservar
           </Button>
         </div>
-      </div>
-
-      <div className="ticket-card__genres" aria-label="Generos">
-        {screening.tags.map((tag) => (
-          <Badge key={tag} accent={screening.accent}>
-            {tag}
-          </Badge>
-        ))}
       </div>
     </article>
   );

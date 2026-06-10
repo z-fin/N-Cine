@@ -18,8 +18,8 @@ export function SupportTierCard({ tier }: SupportTierCardProps) {
           <li key={perk}>{perk}</li>
         ))}
       </ul>
-      <Button href="/apoyar" variant="primary" accent={tier.accent}>
-        Aportar
+      <Button href={tier.donationUrl} target="_blank" rel="noreferrer" variant="primary" accent={tier.accent}>
+        Cafecito
       </Button>
     </Card>
   );

@@ -170,7 +170,7 @@
 
 .site-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 2rem;
   padding: clamp(2rem, 4vw, 3rem) var(--space-page);
   border-top: 2px solid var(--color-black);
@@ -203,7 +203,7 @@
 .footer-links a {
   color: var(--color-white);
   font-size: 0.8rem;
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }

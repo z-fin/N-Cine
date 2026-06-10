@@ -9,12 +9,15 @@ export interface Screening {
   description: string;
   tags: string[];
   accent: AccentColor;
+  posterUrl: string;
+  ticketUrl?: string;
 }
 
 export interface NewsArticle {
   id: string;
   title: string;
   excerpt: string;
+  imageUrl: string;
   category: string;
   date: string;
   readTime: string;
@@ -28,4 +31,5 @@ export interface SupportTier {
   description: string;
   perks: string[];
   accent: AccentColor;
+  donationUrl: string;
 }

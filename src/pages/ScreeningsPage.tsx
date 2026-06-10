@@ -1,103 +1,49 @@
-import { useEffect, useState } from 'react';
-import { ScreeningCard } from '../components/features/screenings/ScreeningCard';
+import { ErrorState, LoadingState } from '../components/common/AsyncState';
+import { TicketCard } from '../components/features/screenings/TicketCard';
+import { useAsyncData } from '../hooks/useAsyncData';
 import { getScreenings } from '../services/api';
-import type { Funcion } from '../types/api';
-import type { Screening } from '../types/content';
-import type { AccentColor } from '../types/design';
-import './pages.css';
-
-const accents: AccentColor[] = ['red', 'orange', 'yellow', 'green', 'indigo', 'violet'];
-
-function formatDateTime(dateTime: string) {
-  return new Intl.DateTimeFormat('es-AR', {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long',
-    hour: '2-digit',
-    minute: '2-digit',
-  }).format(new Date(dateTime));
-}
-
-function toScreening(funcion: Funcion, index: number): Screening {
-  return {
-    id: funcion.id,
-    title: funcion.title,
-    director: funcion.director,
-    dateTime: formatDateTime(funcion.dateTime),
-    venue: funcion.location,
-    description: `${funcion.availableTickets} de ${funcion.totalTickets} entradas disponibles.`,
-    tags: funcion.genres,
-    accent: accents[index % accents.length],
-  };
-}
+import { toScreening } from '../utils/apiAdapters';
+import '../styles/pages.css';
+import { MovieStillsCarousel } from '../components/common/MovieStillsCarousel';
 
 export default function ScreeningsPage() {
-  const [screenings, setScreenings] = useState<Screening[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    async function loadScreenings() {
-      try {
-        setLoading(true);
-        setError(null);
-        const response = await getScreenings();
-
-        if (isMounted) {
-          setScreenings(response.map(toScreening));
-        }
-      } catch (err) {
-        if (isMounted) {
-          setError(err instanceof Error ? err.message : 'No pudimos cargar las funciones.');
-        }
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
-      }
-    }
-
-    void loadScreenings();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  const {
+    data: funcionData,
+    error,
+    isLoading,
+  } = useAsyncData(getScreenings, 'No pudimos conectar con el servidor de funciones.');
+  const screenings = (funcionData ?? []).map(toScreening);
 
   return (
     <>
       <section className="page-section page-section--ink">
         <div className="container page-hero">
-          <span className="section-kicker">Funciones</span>
+          {/* <span className="section-kicker">Funciones</span> */}
           <h1 className="section-heading">Agenda de cine, conversacion y comunidad.</h1>
-          <p className="section-copy">
-            Hay que poner mas texto de que significan las funciones.
-          </p>
+          {/* <p className="section-copy">
+            Funciones con reserva anticipada, cupos cuidados y encuentro despues de cada
+            pelicula.
+          </p> */}
         </div>
       </section>
 
+      <MovieStillsCarousel />
+
       <section className="page-section">
-        <div className="container screenings-list">
-          {loading && (
-            <div className="loading-state" role="status" aria-live="polite">
-              <span className="loading-state__spinner" aria-hidden="true" />
-              Cargando funciones
+        <div className="container">
+          {isLoading && <LoadingState label="Cargando funciones" variant="grid" />}
+          {error && <ErrorState message={error} />}
+          {!isLoading && !error && (
+            <div className="ticket-grid">
+              {screenings.map((screening) => (
+                <TicketCard
+                  key={screening.id}
+                  screening={screening}
+                  frameLabel={`Still frame de ${screening.title}`}
+                />
+              ))}
             </div>
           )}
-
-          {error && (
-            <div className="error-state" role="alert">
-              {error}
-            </div>
-          )}
-
-          {!loading &&
-            !error &&
-            screenings.map((screening) => (
-              <ScreeningCard key={screening.id} screening={screening} />
-            ))}
         </div>
       </section>
     </>

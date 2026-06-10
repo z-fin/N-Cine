@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button } from './Button';
-import logo from '../../assets/logo.jpg';
+import logo from '../../assets/Vector.png';
 import './common.css';
 
 interface PageLayoutProps {
@@ -20,9 +20,9 @@ export function PageLayout({ children }: PageLayoutProps) {
   return (
     <div className="site-shell">
       <header className="site-header">
-        <NavLink to="/" className="brand" aria-label="Nuestro Ciclo inicio">
-          <img src={logo} alt="" />
-          <span>Nuestro Ciclo</span>
+        <NavLink to="/" className="brand" aria-label="Nuestro Cine inicio">
+          {/* <img src={logo} alt="" /> */}
+          <span>Nuestro Cine</span>
         </NavLink>
 
         <nav className="site-nav" aria-label="Principal">
@@ -41,12 +41,13 @@ export function PageLayout({ children }: PageLayoutProps) {
       <main className="site-main">{children}</main>
 
       <footer className="site-footer">
-        <div>
-          <span className="footer-brand">Nuestro Ciclo</span>
+        {/* <div>
+          <span className="footer-brand">Nuestro Cine</span>
           <p>Cine queer y encuentro comunitario.</p>
-        </div>
+        </div> */}
         <div className="footer-links">
           <a href="mailto:hola@nuestrociclo.org">Contacto</a>
+          <a href="/apoyar">Instagram</a>
           <a href="/apoyar">Apoyar</a>
         </div>
       </footer>
