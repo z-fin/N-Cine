@@ -245,6 +245,40 @@
   gap: 1rem;
 }
 
+.loading-state,
+.error-state {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.25rem;
+  border: 2px solid var(--color-black);
+  background: var(--color-white);
+  color: var(--color-black);
+  font-size: 0.85rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.loading-state__spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 3px solid var(--color-line);
+  border-top-color: var(--color-black);
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+}
+
+.error-state {
+  border-color: var(--color-red);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .news-layout {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
