@@ -22,8 +22,8 @@ export default function HomePage() {
         <img className="home-hero__media" src={heroStill} alt="" />
         <div className="home-hero__grain" aria-hidden="true" />
         <div className="home-hero__copy">
-          
           <h1>NUESTRO CICLO</h1>
+          <p>Ciclo audiovisual queer de y para la comunidad LGTBIQ+.</p>
         </div>
         <div className="home-hero__bottom-bar" aria-hidden="true" />
       </section>
@@ -45,8 +45,7 @@ export default function HomePage() {
             <span>Ahora en sala</span>
             <h2>PROXIMAS FUNCIONES</h2>
             <p>
-              Tickets visuales para reservar clasicos, estrenos y cortos locales con
-              conversatorios, trivias y feriantes.
+              Reserva tus tickets para nuestras próximas funciones.
             </p>
           </div>
 

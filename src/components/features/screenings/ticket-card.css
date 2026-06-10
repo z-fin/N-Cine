@@ -7,7 +7,7 @@
 .ticket-card__ticket {
   position: relative;
   display: grid;
-  min-height: 21rem;
+  min-height: 30rem;
   grid-template-columns: minmax(8.5rem, 0.38fr) minmax(0, 1fr);
   overflow: hidden;
   border: 2px solid var(--color-black);

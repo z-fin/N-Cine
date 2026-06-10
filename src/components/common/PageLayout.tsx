@@ -43,11 +43,10 @@ export function PageLayout({ children }: PageLayoutProps) {
       <footer className="site-footer">
         <div>
           <span className="footer-brand">Nuestro Ciclo</span>
-          <p>Cine queer, archivo vivo y encuentro comunitario.</p>
+          <p>Cine queer y encuentro comunitario.</p>
         </div>
         <div className="footer-links">
           <a href="mailto:hola@nuestrociclo.org">Contacto</a>
-          <a href="/noticias">Newsletter</a>
           <a href="/apoyar">Apoyar</a>
         </div>
       </footer>

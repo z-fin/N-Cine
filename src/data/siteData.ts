@@ -49,24 +49,14 @@ export const screenings: Screening[] = [
 
 export const newsArticles: NewsArticle[] = [
   {
-    id: 'archivo-vivo',
-    title: 'Como armamos un archivo vivo de cine queer latinoamericano',
+    id: 'nuestro-cine',
+    title: 'Como armamos la comunidad',
     excerpt:
       'Notas de programacion, hallazgos y preguntas para que cada funcion deje materiales disponibles para la comunidad.',
     category: 'Archivo',
     date: '12 Jun 2026',
     readTime: '5 min',
     accent: 'yellow',
-  },
-  {
-    id: 'voluntariado',
-    title: 'Abrimos convocatoria para voluntariado de sala',
-    excerpt:
-      'Buscamos personas para recibir publicos, coordinar accesibilidad y sostener conversaciones despues de cada pelicula.',
-    category: 'Comunidad',
-    date: '04 Jun 2026',
-    readTime: '3 min',
-    accent: 'green',
   },
   {
     id: 'critica-moonlight',
@@ -77,16 +67,6 @@ export const newsArticles: NewsArticle[] = [
     date: '21 May 2026',
     readTime: '7 min',
     accent: 'indigo',
-  },
-  {
-    id: 'alianzas',
-    title: 'Nuevas alianzas para entradas con precio cuidado',
-    excerpt:
-      'Tres espacios culturales se suman para que Nuestro Cine pueda sostener cupos gratuitos en cada encuentro.',
-    category: 'Gestion',
-    date: '10 May 2026',
-    readTime: '4 min',
-    accent: 'red',
   },
 ];
 
@@ -102,7 +82,7 @@ export const supportTiers: SupportTier[] = [
   {
     id: 'butaca',
     name: 'Butaca sostenida',
-    amount: '$5.000',
+    amount: '$10.000',
     description: 'Hace posible cupos gratuitos para personas de la comunidad.',
     perks: ['Reserva prioritaria', 'Encuentro trimestral de programacion'],
     accent: 'orange',
@@ -110,8 +90,8 @@ export const supportTiers: SupportTier[] = [
   {
     id: 'proyector',
     name: 'Proyector colectivo',
-    amount: '$10.000',
-    description: 'Financia derechos, invitades y registro audiovisual.',
+    amount: '$15.000',
+    description: 'Financia derechos(?), invitades y registro audiovisual.',
     perks: ['Mencion en sala', 'Invitacion doble a funciones especiales'],
     accent: 'violet',
   },

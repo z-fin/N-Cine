@@ -1,0 +1,46 @@
+.support-tier {
+  min-height: 100%;
+}
+
+.support-tier__label {
+  color: var(--color-slate);
+  font-size: 0.82rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.support-tier h3 {
+  font-size: clamp(2.4rem, 5vw, 4.25rem);
+  font-weight: 950;
+  letter-spacing: 0;
+  line-height: 0.9;
+}
+
+.support-tier p,
+.support-tier li {
+  color: var(--color-slate);
+}
+
+.support-tier ul {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.support-tier li {
+  position: relative;
+  padding-left: 1.15rem;
+}
+
+.support-tier li::before {
+  content: "";
+  position: absolute;
+  top: 0.62rem;
+  left: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  background: var(--accent-color);
+}
